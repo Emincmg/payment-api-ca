@@ -1,8 +1,8 @@
-using PaymentApıCA.Application.DTOs;
-using PaymentApıCA.Application.Interfaces.Payment;
-using PaymentApıCA.Application.Services.Payment;
+using PaymentApıCA.Application.Common.Interfaces;
+using PaymentApıCA.Application.Common.Models;
+using PaymentApıCA.Application.Common.Strategies;
 
-namespace PaymentApıCA.Application.Factories;
+namespace PaymentApıCA.Application.Common.Factories;
 
 public class PaymentFactory : IPaymentStrategy
 {

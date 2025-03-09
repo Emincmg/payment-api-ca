@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using PaymentApıCA.Application.DTOs;
-using PaymentApıCA.Application.Interfaces.Payment;
+using PaymentApıCA.Application.Common.Interfaces;
+using PaymentApıCA.Application.Common.Models;
 
-namespace PaymentApıCA.Application.Services.Payment;
+namespace PaymentApıCA.Application.Common.Strategies;
 
 public class StripePayment : IPayment
 {

@@ -1,4 +1,4 @@
-namespace PaymentApıCA.Application.Interfaces.Payment;
+namespace PaymentApıCA.Application.Common.Interfaces;
 
 public interface IPayment :  IPaymentProcessor, IPaymentDecliner, IPaymentSuccessor
 {

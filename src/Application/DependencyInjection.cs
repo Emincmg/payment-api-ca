@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
 using PaymentApıCA.Application.Common.Behaviours;
 using Microsoft.Extensions.Hosting;
-using PaymentApıCA.Application.Factories;
-using PaymentApıCA.Application.Interfaces.Payment;
-using PaymentApıCA.Application.Services;
+using PaymentApıCA.Application.Common.Factories;
+using PaymentApıCA.Application.Common.Interfaces;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -22,8 +21,6 @@ public static class DependencyInjection
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         });
-
-        builder.Services.AddScoped<PaymentService>();
         
         builder.Services.AddScoped<IPaymentStrategy, PaymentFactory>();
     }
