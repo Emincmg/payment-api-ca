@@ -1,7 +1,8 @@
-﻿using PaymentApıCA.Application.Common.Interfaces;
+﻿using PaymentApıCA.Application.Common.FluentValidations;
+using PaymentApıCA.Application.Common.Interfaces;
 using PaymentApıCA.Domain.Events;
 
-namespace PaymentApıCA.Application.Payment.Commands.CreatePayment;
+namespace PaymentApıCA.Application.Payments.Commands.CreatePayment;
 
 public record CreatePaymentCommand : IRequest<int>
 {
@@ -24,10 +25,11 @@ public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand,
     {
         _context = context;
     }
+    
 
     public async Task<int> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
     {
-        var entity = new PaymentApıCA.Domain.Entities.Payment
+        var entity = new Domain.Entities.Payment
         {
              Channel = request.Channel,
                 Amount = request.Amount,
@@ -40,6 +42,8 @@ public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand,
                 ConfirmationMethod = request.ConfirmationMethod
         };
 
+        
+        
         entity.AddDomainEvent(new PaymentCreatedEvent(entity));
 
         _context.Payments.Add(entity);

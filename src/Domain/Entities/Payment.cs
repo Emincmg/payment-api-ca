@@ -1,3 +1,4 @@
+using AutoMapper;
 namespace PaymentApıCA.Domain.Entities;
 
 public class Payment : BaseAuditableEntity
@@ -11,5 +12,5 @@ public class Payment : BaseAuditableEntity
     public string? UserPhone { get; set; }
     public string? PaymentMethod { get; set; }
     public string? ConfirmationMethod { get; set; }
-    
+
 }

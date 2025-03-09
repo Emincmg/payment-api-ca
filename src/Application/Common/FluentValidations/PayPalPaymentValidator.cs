@@ -1,11 +1,10 @@
-using FluentValidation;
 using PaymentApıCA.Application.Common.Strategies;
 
-namespace PaymentProcessorDotnet.FluentValidations;
+namespace PaymentApıCA.Application.Common.FluentValidations;
 
-public class StripePaymentValidator : AbstractValidator<StripePayment>
+public class PayPalPaymentValidator : AbstractValidator<PayPalPayment>
 {
-    public StripePaymentValidator()
+    public PayPalPaymentValidator()
     {
         RuleFor(x => x.Amount).GreaterThan(0).WithMessage("Amount must be greater than zero.");
         RuleFor(x => x.Currency).NotEmpty().WithMessage("Currency is required.");

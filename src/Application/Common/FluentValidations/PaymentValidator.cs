@@ -1,14 +1,15 @@
 using PaymentApıCA.Application.Common.Interfaces;
 using PaymentApıCA.Application.Common.Strategies;
+using PaymentApıCA.Application.Payments.Commands.CreatePayment;
 
-namespace PaymentApıCA.Application.Payment.Commands.CreatePayment;
+namespace PaymentApıCA.Application.Common.FluentValidations;
 
-public class CreatePaymentCommandValidator : AbstractValidator<CreatePaymentCommand>
+public class PaymentValidator 
 {
     private readonly IValidator<PayPalPayment> _payPalPaymentValidator;
     private readonly IValidator<StripePayment> _stripePaymentValidator;
 
-    public CreatePaymentCommandValidator(IValidator<PayPalPayment> payPalPaymentValidator,
+    public PaymentValidator(IValidator<PayPalPayment> payPalPaymentValidator,
         IValidator<StripePayment> stripePaymentValidator)
     {
         _payPalPaymentValidator = payPalPaymentValidator;
